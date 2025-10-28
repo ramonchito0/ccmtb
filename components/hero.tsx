@@ -42,7 +42,7 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative h-[840px] flex items-end md:items-center bg-gray-900 overflow-hidden">
+    <section className="relative h-[895px] md:h-[840px] flex items-end md:items-center bg-gray-900 overflow-hidden">
       <div
         className="absolute right-0 top-0 bottom-0 w-full h-[480px] md:h-full lg:w-[1262px] lg:h-[894px] overflow-hidden"
         style={{
@@ -71,7 +71,7 @@ export function Hero() {
         <p className="text-xl md:text-2xl mb-8">
           Epic Trail on the Central Coast
         </p>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap items-center justify-center md:justify-start gap-3">
               <Link
                 href="#"
                 className="justify-center flex items-center gap-3 bg-primary hover:bg-primary/90 font-bold pb-3 px-7 rounded-lg text-md pt-2.5 transition-colors text-foreground"
