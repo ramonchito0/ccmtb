@@ -30,16 +30,16 @@ export function Header() {
             </div>
 
             {/* My Account and Cart */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-5 md:gap-6">
        
               <Link href="#" className="text-foreground hover:text-primary transition flex items-center gap-2 text-sm">
                 <User size={18} />
-                <span>My Account</span>
+                <span className="hidden md:inline-block">My Account</span>
               </Link>
 
               <Link href="#" className="text-foreground hover:text-primary transition flex items-center gap-2 text-sm">
                 <ShoppingCart size={18} />
-                <span>{cartItems} items</span>
+                <span>{cartItems} <span className="hidden md:inline-block">items</span></span>
               </Link>
             </div>
           </div>
@@ -106,7 +106,7 @@ export function Header() {
               <Link href="#" className="text-foreground hover:text-primary transition">
                 Shop
               </Link>
-              <Link href="#" className="px-6 py-2 rounded-full bg-accent hover:bg-accent/90">
+              <Link href="#" className="px-6 pt-1.5 pb-2 rounded-full bg-accent hover:bg-accent/90">
                 Donate
               </Link>              
               
@@ -120,7 +120,7 @@ export function Header() {
 
           {/* Mobile Menu */}
           {isOpen && (
-            <div className="md:hidden pb-4 space-y-2">
+            <div className="md:hidden bg-background/80 rounded-[10px] backdrop-blur-sm p-4 space-y-2">
               <Link href="/" className="block px-4 py-2 hover:bg-muted rounded">
                 Home
               </Link>

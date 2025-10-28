@@ -42,10 +42,10 @@ export function WelcomeSection() {
               <div className="mt-6">
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 font-semibold py-3 px-6 rounded-md text-lg transition-colors text-foreground"
+                  className="justify-center inline-flex items-center gap-3 bg-primary hover:bg-primary/90 font-bold pb-3 px-7 rounded-lg text-md pt-2.5 transition-colors text-foreground"
                 >
-                  Buy a Supporter Pack <ArrowRight size={20} />
-                </Link>
+                  Buy a Supporter Pack <ArrowRight size={18} />
+                </Link>                   
               </div>
             </div>
 

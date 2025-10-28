@@ -1,8 +1,18 @@
-import Image from "next/image"
-import { Trophy, Medal, Award } from "lucide-react"
+"use client";
+
+import Image from "next/image";
+import { Trophy, Medal, Award } from "lucide-react";
+import { ReactNode } from "react";
+
+interface Sponsor {
+  name: string;
+  logo: string;
+}
+
+type Tier = "gold" | "silver" | "bronze";
 
 export function SponsorsSection() {
-  const sponsors = {
+  const sponsors: Record<Tier, Sponsor[]> = {
     gold: [
       { name: "Coastal Bike Co", logo: "/images/logos/Coastal_Logo_GoldSponsors.jpg" },
       { name: "Angry Goat Trails", logo: "/images/logos/AngryGoatTrails_GoldSponsors.jpg" },
@@ -25,26 +35,30 @@ export function SponsorsSection() {
       { name: "Slam Factory", logo: "/images/logos/SlamFactory_BronzeSponsor.jpg" },
       { name: "Tall Tree Creative", logo: "/images/logos/TallTreeCreative_BronzeSponsor.jpg" },
     ],
-  }
+  };
 
-  const renderSponsors = (tier, sponsors) => {
-    const iconProps = "w-7 h-7 mr-2"
-    let icon
-    let color
+  const renderSponsors = (tier: Tier, tierSponsors: Sponsor[]): ReactNode => {
+    const iconProps = "w-7 h-7 mr-2";
+    let icon: ReactNode;
+    let color: string;
 
     switch (tier) {
       case "gold":
-        icon = <Trophy className={`${iconProps} text-yellow-500`} />
-        color = "text-yellow-600"
-        break
+        icon = <Trophy className={`${iconProps} text-yellow-500`} />;
+        color = "text-yellow-600";
+        break;
       case "silver":
-        icon = <Medal className={`${iconProps} text-gray-400`} />
-        color = "text-gray-500"
-        break
+        icon = <Medal className={`${iconProps} text-gray-400`} />;
+        color = "text-gray-500";
+        break;
       case "bronze":
-        icon = <Award className={`${iconProps} text-amber-700`} />
-        color = "text-amber-700"
-        break
+        icon = <Award className={`${iconProps} text-amber-700`} />;
+        color = "text-amber-700";
+        break;
+      default:
+        icon = null;
+        color = "";
+        break;
     }
 
     return (
@@ -57,7 +71,7 @@ export function SponsorsSection() {
         </div>
 
         <div className="flex flex-wrap justify-center items-center gap-8">
-          {sponsors.map((sponsor) => (
+          {tierSponsors.map((sponsor) => (
             <div key={sponsor.name} className="flex justify-center items-center rounded">
               <Image
                 src={sponsor.logo}
@@ -70,8 +84,8 @@ export function SponsorsSection() {
           ))}
         </div>
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <section className="py-20 bg-slate-200 border-b border-border border-slate-300">
@@ -89,9 +103,12 @@ export function SponsorsSection() {
         {renderSponsors("bronze", sponsors.bronze)}
 
         <p className="mt-20 text-slate-600 text-base">
-          Interested in supporting? <a href="#" className="text-primary font-semibold hover:underline">Become a Sponsor</a>
-        </p>          
+          Interested in supporting?{" "}
+          <a href="#" className="text-primary font-semibold hover:underline">
+            Become a Sponsor
+          </a>
+        </p>
       </div>
     </section>
-  )
+  );
 }

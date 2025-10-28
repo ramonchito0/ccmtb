@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -77,12 +78,12 @@ export function FooterBoxes() {
         </div>
 
         <div className="mt-12 flex items-center justify-center gap-2">
-          <Link
-            href="#"
-            className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 font-bold py-4 px-8 rounded-lg text-lg transition-colors text-foreground"
-          >
-            Join the Club
-          </Link>
+              <Link
+                href="#"
+                className="justify-center inline-flex items-center gap-3 bg-primary hover:bg-primary/90 font-bold pb-3 px-7 rounded-lg text-md pt-2.5 transition-colors text-foreground"
+              >
+            Join the Club  <ArrowRight size={18} />
+          </Link>     
         </div>
       </div>
 
